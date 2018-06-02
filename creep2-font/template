@@ -1,0 +1,22 @@
+# Template file for 'gohufont'
+pkgname=creep2-font
+version=1.0
+revision=1
+noarch="yes"
+makedepends="font-util"
+depends="${makedepends}"
+font_dirs="/usr/share/fonts/X11/misc"
+short_desc="Programming monospace bitmap"
+maintainer='AnonAM'
+license="MIT"
+homepage="https:/github.com/raymond-w-ko/creep2"
+distfiles="https://github.com/raymond-w-ko/creep2/archive/master.tar.gz"
+wrksrc="creep2-master"
+checksum=0a23b2a449b1dd52947a3cd2b54f3256814f5295f584fcdeab6dc1705cc13b57
+
+do_install() {
+	for f in *.bdf; do
+		vinstall "$f" 644 "$font_dirs"
+	done
+	vdoc README.md
+}
